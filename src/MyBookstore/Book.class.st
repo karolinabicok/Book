@@ -12,12 +12,13 @@ Class {
 	#category : #MyBookstore
 }
 
-{ #category : #'as yet unclassified' }
-Book class >> title: aTitle author: anAuthor year: aYear publisher: aPublisher [
+{ #category : #creating }
+Book class >> title: aTitle author: anAuthor year: aYear genre: aGenre publisher: aPublisher [
 ^ self new
 	title: aTitle;
 	author: anAuthor;
 	year: aYear;
+	genre: aGenre;
 	publisher: aPublisher;
 	yourself  
 
