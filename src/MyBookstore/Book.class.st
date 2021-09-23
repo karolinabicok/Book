@@ -12,6 +12,18 @@ Class {
 	#category : #MyBookstore
 }
 
+{ #category : #creating }
+Book class >> title: aTitle author: anAuthor year: aYear genre: aGenre publisher: aPublisher [
+^ self new
+	title: aTitle;
+	author: anAuthor;
+	year: aYear;
+	genre: aGenre;
+	publisher: aPublisher;
+	yourself  
+
+]
+
 { #category : #'as yet unclassified' }
 Book class >> title: aTitle author: anAuthor year: aYear publisher: aPublisher [
 ^ self new
@@ -51,6 +63,11 @@ Book >> genre [
 { #category : #accessing }
 Book >> genre: aGenre [
 	genre := aGenre
+]
+
+{ #category : #accessing }
+Book >> lessThan500 [
+^ cost < 500
 ]
 
 { #category : #accessing }
