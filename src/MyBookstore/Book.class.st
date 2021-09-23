@@ -24,17 +24,6 @@ Book class >> title: aTitle author: anAuthor year: aYear genre: aGenre publisher
 
 ]
 
-{ #category : #'as yet unclassified' }
-Book class >> title: aTitle author: anAuthor year: aYear publisher: aPublisher [
-^ self new
-	title: aTitle;
-	author: anAuthor;
-	year: aYear;
-	publisher: aPublisher;
-	yourself  
-
-]
-
 { #category : #accessing }
 Book >> author [ 
 ^ author
