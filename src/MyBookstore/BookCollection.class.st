@@ -32,6 +32,11 @@ BookCollection >> addBook: aBook [
 ]
 
 { #category : #'as yet unclassified' }
+BookCollection >> allBooks [
+	^ books
+]
+
+{ #category : #'as yet unclassified' }
 BookCollection >> allBooksWithCost [
 	^ books select: [ :b | b hasCost ]
 ]
