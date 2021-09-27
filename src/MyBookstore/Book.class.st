@@ -19,6 +19,7 @@ Book class >> title: aTitle author: anAuthor year: aYear publisher: aPublisher [
 	author: anAuthor;
 	year: aYear;
 	publisher: aPublisher;
+	cost: 0;
 	yourself  
 
 ]
@@ -51,6 +52,11 @@ Book >> genre [
 { #category : #accessing }
 Book >> genre: aGenre [
 	genre := aGenre
+]
+
+{ #category : #testing }
+Book >> hasCost [
+	^ cost > 0
 ]
 
 { #category : #accessing }
@@ -86,4 +92,9 @@ Book >> title: aString [
 { #category : #accessing }
 Book >> year [ 
 ^ year
+]
+
+{ #category : #accessing }
+Book >> year: anInteger [ 
+	year := anInteger
 ]
