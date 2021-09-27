@@ -36,6 +36,12 @@ BookCollectionTest >> testAddBook [
 ]
 
 { #category : #running }
+BookCollectionTest >> testAllBookWithSameGenre [
+	self assert: (bookstore allBooksFromGenre: 'classic') size equals: 1
+
+]
+
+{ #category : #running }
 BookCollectionTest >> testAllBooks [
 	bookstore addBook: secondBook.
 	self assert: bookstore allBooks size equals: 2.
@@ -46,6 +52,23 @@ BookCollectionTest >> testAllBooks [
 BookCollectionTest >> testAllBooksWithCost [
 	bookstore addBook: secondBook.
 	self assert: bookstore allBooksWithCost size equals: 1
+
+]
+
+{ #category : #running }
+BookCollectionTest >> testAllBooksWithCostAndGenre [
+	bookstore addBook: secondBook .
+	secondBook cost: 700.
+	self assert: (bookstore allBooksFromGenre: 'classic') size equals: 1.
+	self assert: bookstore allBooksWithCost size equals: 2.
+
+]
+
+{ #category : #running }
+BookCollectionTest >> testAllCategories [
+	bookstore addBook: secondBook.
+	secondBook genre: 'drama'.
+	self assert: bookstore allGenres size equals: 2.
 
 ]
 

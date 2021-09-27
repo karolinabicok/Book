@@ -37,8 +37,18 @@ BookCollection >> allBooks [
 ]
 
 { #category : #'as yet unclassified' }
+BookCollection >> allBooksFromGenre: aGenre [
+	^ books select: [ :b | b genre = aGenre ]
+]
+
+{ #category : #'as yet unclassified' }
 BookCollection >> allBooksWithCost [
 	^ books select: [ :b | b hasCost ]
+]
+
+{ #category : #'as yet unclassified' }
+BookCollection >> allGenres [
+	^ (self allBooks collect: [ :b | b genre ]) asSet
 ]
 
 { #category : #initialization }
