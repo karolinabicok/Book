@@ -64,6 +64,11 @@ Book >> lessThan500 [
 ^ cost < 500
 ]
 
+{ #category : #printing }
+Book >> printBook [
+^ title , ' - ' , author , ' ' , (year greaseString) , ', ' , publisher
+]
+
 { #category : #accessing }
 Book >> publisher [
 ^ publisher
