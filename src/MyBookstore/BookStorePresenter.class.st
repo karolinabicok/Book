@@ -2,48 +2,45 @@ Class {
 	#name : #BookStorePresenter,
 	#superclass : #SpPresenter,
 	#instVars : [
-		'allBooks',
-		'benchmarkButton',
-		'stopButton'
+		'list1'
 	],
 	#category : #MyBookstore
 }
 
 { #category : #specs }
-BookStorePresenter class >> defaultSpec [
-^ SpBoxLayout newVertical  
- 
- add: 'All books in bookstore' expand: false;
- add: #allBooks;
- addLast: (SpBoxLayout newHorizontal  
-  				add: #benchmarkButton ;
-  				add: #stopButton ; yourself);
- yourself.
+BookStorePresenter class >> defaultSpec [ 
+^ SpBoxLayout newVertical
+	add: (SpBoxLayout newHorizontal
+				add:
+					(SpBoxLayout newVertical
+						add: 'Knjige' withConstraints: [ :constraints | constraints height: self labelHeight ];
+						add: #list1;
+						yourself));
+	yourself
+]
+
+{ #category : #initialization }
+BookStorePresenter >> initializePresenter [
+| kolekcija |
+
+kolekcija := BookCollection new.
+kolekcija createDemoBooks.
+
+list1 := self newList.
+
+list1
+		items: kolekcija allBooksPrinting.
+
+]
+
+{ #category : #initialization }
+BookStorePresenter >> initializeWindow: aWindowPresenter [ 
+   aWindowPresenter 
+	title: 'Kolekcija knjiga';
+	initialExtent: 500@400
 ]
 
 { #category : #accessing }
-BookStorePresenter >> allBooks [ 
-	^ allBooks
-	
-]
-
-{ #category : #initialization }
-BookStorePresenter >> benchmarkButton [
-^ benchmarkButton 
-]
-
-{ #category : #initialization }
-BookStorePresenter >> initializePresenters [
- 
- allBooks := BookCollection new initialize createDemoBooks allBooksPrinting.
- 
- "operations items: MBAbstract subclasses."
-
- benchmarkButton  := self newButton label: 'Do it';
-											  color: Color green; 
-											  yourself.
-
- stopButton := self newButton label: 'Stop'; 
-									   color: Color yellow; 
-										yourself.
+BookStorePresenter >> list1 [ 
+^ list1
 ]

@@ -91,6 +91,11 @@ BookCollection >> removeAllBooks [
 ]
 
 { #category : #removing }
+BookCollection >> removeBook: aBook [
+	books remove: aBook
+]
+
+{ #category : #removing }
 BookCollection >> size [
 	^ books size
 ]
